@@ -28,7 +28,7 @@ public class TableViewSample extends Application {
         stage.setHeight(500);
 
         final Label label = new Label("Actors");
-        label.setFont(new Font("Arial", 18));
+        label.setFont(new Font("Arial", 16));
 
         table.setEditable(true);
 
