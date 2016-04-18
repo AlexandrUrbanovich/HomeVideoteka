@@ -41,6 +41,7 @@ public class TableViewSample extends Application {
         final VBox vbox = new VBox();
         vbox.setSpacing(5);
         vbox.setPadding(new Insets(10, 0, 0, 10));
+        vbox.getChildren().add(table);
 
         ((Group) scene.getRoot()).getChildren().addAll(vbox);
 
