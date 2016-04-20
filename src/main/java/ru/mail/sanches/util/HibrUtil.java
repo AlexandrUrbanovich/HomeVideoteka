@@ -1,4 +1,4 @@
-package ru.mail.sanches.entity;
+package ru.mail.sanches.util;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;

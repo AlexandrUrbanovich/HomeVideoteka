@@ -1,8 +1,6 @@
 package ru.mail.sanches.entity;
 
 import javax.persistence.*;
-import java.util.Date;
-
 
 
 @Entity
@@ -22,16 +20,12 @@ public class Actor {
     @Column(name = "middle_name")
     private String middleName;
 
-
-    private Date date;
-
-    public Date getDate() {
-        return date;
+    public Actor() {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.middleName = middleName;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -69,7 +63,6 @@ public class Actor {
     public String toString() {
         return "Actor{" +
                 "id=" + id +
-                ", date=" + date +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", middleName='" + middleName + '\'' +
