@@ -32,7 +32,7 @@ public abstract class AbstractHibernateDao<T, PK extends Serializable> implement
     @SuppressWarnings("unchecked")
     @Override
     public PK save(T obj) {
-        Session session=getSession();
+        Session session = getSession();
         session.getTransaction().begin();
         PK pk = (PK) session.save(obj);
         session.getTransaction().commit();
@@ -41,8 +41,10 @@ public abstract class AbstractHibernateDao<T, PK extends Serializable> implement
 
     @Override
     public void update(T o) {
-
+        Session session = getSession();
+        session.getTransaction().begin();
         getSession().update(o);
+        session.getTransaction().commit();
     }
 
     @SuppressWarnings("unchecked")

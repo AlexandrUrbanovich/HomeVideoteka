@@ -1,7 +1,6 @@
 package ru.mail.sanches.service;
 
 import ru.mail.sanches.entity.Actor;
-
 import java.util.List;
 
 public interface  ActorService {

@@ -54,8 +54,11 @@ public class TableViewActor extends Application
         table.setEditable(true);
 
         TableColumn firstNameCol = new TableColumn("First Name");
+        firstNameCol.setMinWidth(150);
         TableColumn lastNameCol = new TableColumn("Last Name");
+        lastNameCol.setMinWidth(150);
         TableColumn middleNameCol = new TableColumn("Middle Name");
+        middleNameCol.setMinWidth(150);
 
 
         final TextField addFirstName = new TextField();
@@ -118,24 +121,35 @@ public class TableViewActor extends Application
 
 
         final Button button = new Button("Add");
-        button.setOnAction(e -> {
-            String firstName =  addFirstName.getText();
-            String lastName =  addLastName.getText();
-            String middleName = addMiddleName.getText();
-            if(!firstName.isEmpty())
-                data.add(new Actor(firstName, lastName, middleName));
-            addFirstName.clear();
-            addLastName.clear();
-            addMiddleName.clear();
+        button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                String firstName = addFirstName.getText();
+                String lastName = addLastName.getText();
+                String middleName = addMiddleName.getText();
+                if (!firstName.isEmpty())
+                    data.add(new Actor(firstName, lastName, middleName));
+                addFirstName.clear();
+                addLastName.clear();
+                addMiddleName.clear();
+            }
         });
 
         final Button save = new Button("Save");
-        save.setOnAction(e -> service.save(data));
+        save.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                service.save(data);
+            }
+        });
 
         final Button refresh = new Button("Refresh");
-        refresh.setOnAction(e -> {
-            data.clear();
-            data.addAll(service.getAll());
+        refresh.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                data.clear();
+                data.addAll(service.getAll());
+            }
         });
 
         HBox hBox = new HBox();
@@ -145,20 +159,23 @@ public class TableViewActor extends Application
         final TextField query = new TextField();
         query.setPromptText("Query");
 
-        final Button s = new Button("Refresh");
-        s.setOnAction(e -> {
-            data.clear();
-            data.addAll(service.getByParameter("firstName",query.getText()));
+        final Button search = new Button("Search");
+        search.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                data.clear();
+                data.addAll(service.getByParameter("firstName", query.getText()));
+            }
         });
 
-        HBox search = new HBox();
-        search.getChildren().addAll(query,s);
+        HBox see = new HBox();
+        see.getChildren().addAll(query,search);
 
         final VBox vbox = new VBox();
         vbox.setFillWidth(true);
         vbox.setSpacing(5);
         vbox.setPadding(new Insets(10, 0, 0, 10));
-        vbox.getChildren().addAll(table,hBox, search);
+        vbox.getChildren().addAll(table,hBox, see);
 
         ((Group) scene.getRoot()).getChildren().addAll(vbox);
 
