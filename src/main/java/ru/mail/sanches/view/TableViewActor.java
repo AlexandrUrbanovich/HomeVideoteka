@@ -39,18 +39,18 @@ public class TableViewActor extends Application
     }
 
     public void start(Stage stage) throws Exception {
-
-       List<Actor> actors = dao.getAll();
+/*
+        List<Actor> actors = dao.getAll();
         data.addAll(actors);
 
         Scene scene = new Scene(new Group());
-        stage.setTitle("Table View Sample");
+        stage.setTitle("Table View Sample Actors");
         stage.setWidth(500);
         stage.setHeight(550);
 
         final Label label = new Label("Actors");
         label.setFont(new Font("Arial", 20));
-
+*/
         table.setEditable(true);
 
         TableColumn firstNameCol = new TableColumn("First Name");
@@ -168,7 +168,7 @@ public class TableViewActor extends Application
 
         HBox see = new HBox();
         see.getChildren().addAll(query,search);
-
+/*
         final VBox vbox = new VBox();
         vbox.setFillWidth(true);
         vbox.setSpacing(5);
@@ -178,6 +178,6 @@ public class TableViewActor extends Application
         ((Group) scene.getRoot()).getChildren().addAll(vbox);
 
         stage.setScene(scene);
-        stage.show();
+*/        stage.show();
     }
 }

@@ -23,6 +23,12 @@ public class Producer {
     @OneToMany(mappedBy = "producer")
     private List<Film> films;
 
+    public Producer(String firstName, String lastName, String middleName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.middleName = middleName;
+    }
+
 
     public List<Film> getFilms() {
         return films;
