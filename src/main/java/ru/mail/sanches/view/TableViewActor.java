@@ -62,8 +62,8 @@ public class TableViewActor extends Application
 
 
         final TextField addFirstName = new TextField();
-        addFirstName.setPromptText("First Name");
         addFirstName.setMaxWidth(firstNameCol.getPrefWidth());
+        addFirstName.setPromptText("First Name");
 
         final TextField addLastName = new TextField();
         addLastName.setMaxWidth(lastNameCol.getPrefWidth());
@@ -76,9 +76,7 @@ public class TableViewActor extends Application
         firstNameCol.setCellValueFactory(
                 new PropertyValueFactory<Actor,String>("firstName")
         );
-
         firstNameCol.setCellFactory(TextFieldTableCell.forTableColumn());
-
         firstNameCol.setOnEditCommit(
                 new EventHandler<TableColumn.CellEditEvent<Actor, String>>() {
                     public void handle(TableColumn.CellEditEvent<Actor, String> t) {
