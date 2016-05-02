@@ -9,7 +9,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import javafx.stage.Window;
+import ru.mail.sanches.view.Views;
+import ru.mail.sanches.view.impl.Window;
 
 import java.nio.file.attribute.UserPrincipalLookupService;
 
@@ -28,7 +29,7 @@ public class App extends Application{
         stage.setWidth(500);
         stage.setHeight(550);
 
-        final Label label = new Label("Choice button");
+        final Label label = new Label("Home Videoteka");
         label.setFont(new Font("Arial", 20));
 
         ((Group) scene.getRoot()).getChildren().addAll(initLayout(), initLayout());
@@ -38,7 +39,7 @@ public class App extends Application{
     }
 
     private Pane initLayout() {
- //       Views views = new Window()
-//     return views.buldPane(data);
+        Views views = new Window();
+        return views.buildPane(data);
     }
 }

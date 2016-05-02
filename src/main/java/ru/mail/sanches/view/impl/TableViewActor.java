@@ -1,4 +1,4 @@
-package ru.mail.sanches.view;
+package ru.mail.sanches.view.impl;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
