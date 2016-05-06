@@ -12,7 +12,6 @@ import javafx.stage.Stage;
 import ru.mail.sanches.entity.Actor;
 import ru.mail.sanches.entity.Producer;
 import ru.mail.sanches.view.impl.Window;
-
 import java.util.HashMap;
 import java.util.Map;
 
