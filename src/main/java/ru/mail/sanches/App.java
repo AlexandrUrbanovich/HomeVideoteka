@@ -42,6 +42,7 @@ public class App extends Application{
     }
 
 
+
     private Pane initLayout() {
 
         data.put(Actor.class, dataactors);
