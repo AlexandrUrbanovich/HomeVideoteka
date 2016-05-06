@@ -26,6 +26,9 @@ public class Film {
         return producer;
     }
 
+    public Film() {
+    }
+
     public void setProducer(Producer producer) {
         this.producer = producer;
     }

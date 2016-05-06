@@ -9,15 +9,19 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import ru.mail.sanches.view.Views;
+import ru.mail.sanches.entity.Actor;
+import ru.mail.sanches.entity.Producer;
 import ru.mail.sanches.view.impl.Window;
 
-import java.nio.file.attribute.UserPrincipalLookupService;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class App extends Application{
 
-    private final ObservableList<UserPrincipalLookupService> data = FXCollections.observableArrayList();
+    private final ObservableList<Actor> dataactors = FXCollections.observableArrayList();
+    private final ObservableList<Producer> dataproducers = FXCollections.observableArrayList();
+    Map<Class, ObservableList> data = new HashMap<>();
 
     public static void main(String[] args){
         launch(args);
@@ -40,7 +44,11 @@ public class App extends Application{
 
 
     private Pane initLayout() {
-        Views views = new Window();
+
+        data.put(Actor.class, dataactors);
+        data.put(Producer.class, dataproducers);
+
+        Window views = new Window();
         return views.buildPane(data);
     }
 }

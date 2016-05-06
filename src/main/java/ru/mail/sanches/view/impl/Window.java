@@ -6,19 +6,23 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import ru.mail.sanches.entity.Actor;
+import ru.mail.sanches.entity.Producer;
 import ru.mail.sanches.view.Views;
 
-public class Window implements Views {
-
-    private Views tableActor = (Views) new TableViewActor();
-    private Views tableProducer = (Views) new TableViewProducer();
+import java.util.Map;
 
 
-    public Pane buildPane(final ObservableList<Actor> data) {
+public class Window {
+
+    private Views tableActor = new TableViewActor();
+    private Views tableProducer = new TableViewProducer();
+
+
+    public Pane buildPane(final Map<Class, ObservableList> data) {
         final VBox vbox = new VBox();
 
-        final ChangedButton viewActor = new ChangedButton(tableActor.buildPane(data));
-        final ChangedButton viewProducer = new ChangedButton(tableProducer.buildPane(data));
+        final ChangedButton viewActor = new ChangedButton(tableActor.buildPane(data.get(Actor.class)));
+        final ChangedButton viewProducer = new ChangedButton(tableProducer.buildPane(data.get(Producer.class)));
 
         HBox cont = new HBox();
         cont.getChildren().addAll(viewActor, viewProducer);
@@ -48,5 +52,4 @@ public class Window implements Views {
 
         return vbox;
     }
-
 }

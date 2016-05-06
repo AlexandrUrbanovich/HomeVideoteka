@@ -12,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
@@ -20,37 +21,20 @@ import ru.mail.sanches.dao.impl.ActorDaoImpl;
 import ru.mail.sanches.entity.Actor;
 import ru.mail.sanches.service.ActorService;
 import ru.mail.sanches.service.impl.ActorServiceImpl;
+import ru.mail.sanches.view.Views;
 
 import java.util.List;
+import java.util.Map;
 
-public class TableViewActor extends Application
+public class TableViewActor implements Views<Actor>
 {
     private TableView table = new TableView();
 
     private ActorService service = new ActorServiceImpl();
 
-    private ActorDao dao = new ActorDaoImpl();
+    @Override
+    public Pane buildPane(ObservableList<Actor> data) {
 
-    private final ObservableList<Actor> data = FXCollections.observableArrayList();
-
-    public static void main( String[] args )
-    {
-        launch(args);
-    }
-
-    public void start(Stage stage) throws Exception {
-/*
-        List<Actor> actors = dao.getAll();
-        data.addAll(actors);
-
-        Scene scene = new Scene(new Group());
-        stage.setTitle("Table View Sample Actors");
-        stage.setWidth(500);
-        stage.setHeight(550);
-
-        final Label label = new Label("Actors");
-        label.setFont(new Font("Arial", 20));
-*/
         table.setEditable(true);
 
         TableColumn firstNameCol = new TableColumn("First Name");
@@ -168,16 +152,13 @@ public class TableViewActor extends Application
 
         HBox see = new HBox();
         see.getChildren().addAll(query,search);
-/*
+
         final VBox vbox = new VBox();
         vbox.setFillWidth(true);
         vbox.setSpacing(5);
         vbox.setPadding(new Insets(10, 0, 0, 10));
-        vbox.getChildren().addAll(table,hBox, see);
+        vbox.getChildren().addAll(table, hBox, see);
 
-        ((Group) scene.getRoot()).getChildren().addAll(vbox);
-
-        stage.setScene(scene);
-*/        stage.show();
+        return vbox;
     }
 }

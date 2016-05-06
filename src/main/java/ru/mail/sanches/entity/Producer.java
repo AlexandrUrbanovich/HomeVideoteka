@@ -29,6 +29,8 @@ public class Producer {
         this.middleName = middleName;
     }
 
+    public Producer() {
+    }
 
     public List<Film> getFilms() {
         return films;

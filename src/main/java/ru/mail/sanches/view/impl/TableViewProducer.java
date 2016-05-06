@@ -12,40 +12,30 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import ru.mail.sanches.dao.ProducerDao;
 import ru.mail.sanches.dao.impl.ProducerDaoImpl;
+import ru.mail.sanches.entity.Actor;
 import ru.mail.sanches.entity.Producer;
 import ru.mail.sanches.service.ProducerService;
 import ru.mail.sanches.service.impl.ProducerServiceImpl;
+import ru.mail.sanches.view.Views;
 
 import java.util.List;
+import java.util.Map;
 
-public class TableViewProducer extends Application{
+public class TableViewProducer implements Views<Producer>{
 
     private TableView table = new TableView();
 
     private ProducerService service = new ProducerServiceImpl();
 
-    private ProducerDao dao = new ProducerDaoImpl();
 
-    private final ObservableList<Producer> data = FXCollections.observableArrayList();
-
-    public  static void main(String[] args) {
-        launch(args);
-    }
-
-    public void start(Stage stage) throws Exception {
-
-        List<Producer> producers = dao.getAll();
-        data.addAll(producers);
-
-        Scene scene = new Scene(new Group());
-        stage.setTitle("Table View Sample Producers");
-        stage.setWidth(500);
-        stage.setHeight(550);
+    @Override
+    public Pane buildPane(final ObservableList<Producer> data) {
 
         final Label label = new Label("Producers");
         label.setFont(new Font("Arial", 20));
@@ -150,14 +140,6 @@ public class TableViewProducer extends Application{
         vbox.setPadding(new Insets(10, 0, 0, 10));
         vbox.getChildren().addAll(table,hBox, see);
 
-        ((Group) scene.getRoot()).getChildren().addAll(vbox);
-
-        stage.setScene(scene);
-        stage.show();
-
-
-
-
-
+        return vbox;
     }
 }
