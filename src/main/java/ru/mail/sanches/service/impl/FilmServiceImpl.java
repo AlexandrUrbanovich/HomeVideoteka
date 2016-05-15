@@ -6,7 +6,6 @@ import ru.mail.sanches.dao.FilmDao;
 import ru.mail.sanches.dao.impl.FilmDaoImpl;
 import ru.mail.sanches.entity.Film;
 import ru.mail.sanches.service.FilmService;
-
 import java.util.List;
 
 public class FilmServiceImpl implements FilmService {

@@ -6,7 +6,6 @@ import ru.mail.sanches.dao.ActorDao;
 import ru.mail.sanches.dao.impl.ActorDaoImpl;
 import ru.mail.sanches.entity.Actor;
 import ru.mail.sanches.service.ActorService;
-
 import java.util.List;
 
 public class ActorServiceImpl implements ActorService {

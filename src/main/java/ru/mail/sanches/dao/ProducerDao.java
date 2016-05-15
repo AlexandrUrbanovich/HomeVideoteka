@@ -3,7 +3,6 @@ package ru.mail.sanches.dao;
 
 import org.hibernate.criterion.Criterion;
 import ru.mail.sanches.entity.Producer;
-
 import java.util.List;
 
 public interface ProducerDao {

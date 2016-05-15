@@ -2,7 +2,6 @@ package ru.mail.sanches.dao;
 
 import org.hibernate.criterion.Criterion;
 import ru.mail.sanches.entity.Film;
-
 import java.util.List;
 
 public interface FilmDao {

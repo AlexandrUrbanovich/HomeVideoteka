@@ -8,7 +8,6 @@ import javafx.scene.layout.VBox;
 import ru.mail.sanches.entity.Actor;
 import ru.mail.sanches.entity.Producer;
 import ru.mail.sanches.view.Views;
-
 import java.util.Map;
 
 

@@ -7,7 +7,6 @@ import ru.mail.sanches.dao.ProducerDao;
 import ru.mail.sanches.dao.impl.ProducerDaoImpl;
 import ru.mail.sanches.entity.Producer;
 import ru.mail.sanches.service.ProducerService;
-
 import java.util.List;
 
 public class ProducerServiceImpl implements ProducerService {

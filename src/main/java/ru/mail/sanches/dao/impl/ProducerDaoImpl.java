@@ -5,7 +5,6 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Criterion;
 import ru.mail.sanches.HibernateUtil;
 import ru.mail.sanches.dao.ProducerDao;
-import ru.mail.sanches.entity.Actor;
 import ru.mail.sanches.entity.Producer;
 
 import java.util.List;
